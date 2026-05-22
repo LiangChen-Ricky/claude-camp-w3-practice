@@ -1,16 +1,26 @@
-def reverse_words(s):
-    words = s.split()
-    rwords = words[::-1]
-    return " ".join(rwords)
-def count_vowels(s):
-    count = 0
-    for letter in s:
-        if letter in ['a', 'e', 'i', 'o', 'u']:
-            count += 1
-    return count
-def is_palindrome(s):
-    reversed_s = s[::-1]
-    if s == reversed_s:
-        return True
-    else:
-        return False
+def reverse_words(text: str) -> str:
+    """反转字符串中单词的顺序。
+    
+    例如: "hello world" -> "world hello"
+    空字符串返回空字符串。
+    """
+    words = text.split()
+    return " ".join(words[::-1])
+
+
+def count_vowels(text: str) -> int:
+    """统计字符串中元音字母的数量（不区分大小写）。
+    
+    例如: "Hello" -> 2 (e, o)
+    空字符串返回 0。
+    """
+    return sum(1 for letter in text if letter.lower() in "aeiou")
+
+
+def is_palindrome(text: str) -> bool:
+    """判断字符串是否为回文。
+    
+    例如: "racecar" -> True, "hello" -> False
+    空字符串返回 True。
+    """
+    return text == text[::-1]
